@@ -5,11 +5,13 @@ const port = 3000
 
 let body: any = null
 
-// app.use(express.json({inflate: true}))
+app.use(express.json({inflate: true}))
+app.use(express.text())
 
 app.post('/',async (request: Request, res: Response) => {
-    body = request
-    res.send()
+    body = request.body
+    console.log(body)
+    res.end()
 })
 
 app.get('/', async (_: Request, res: Response) => {
